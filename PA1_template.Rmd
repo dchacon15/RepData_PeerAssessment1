@@ -32,7 +32,7 @@ totalStepsPerDay <- aggregate(steps~date, activityData, sum)
 library(ggplot2)
 ggplot(totalStepsPerDay,aes(steps))+
     geom_histogram(bins = 20, fill = "turquoise") +
-    ggtitle("Histogram of the total number of steps\ntaken each day")+
+    ggtitle("Number of steps taken each day \nduring the months of October and November, 2012")+
     xlab("Number of steps taken each day")
 ```
 
@@ -52,7 +52,7 @@ averageNumberSteps <- aggregate(steps~interval, activityData, mean)
 
 ggplot(averageNumberSteps,aes(interval,steps))+
     geom_line(col="dodgerblue") + 
-    labs(title = "Average Number of Steps Taken\nAcross All Days")+
+    labs(title = "Average Number of Steps taken in 5 minutes intervals \nduring the months of October and November, 2012")+
     xlab("5-min Interval")+
     ylab("Avg. Steps Across All Days")
 ```
@@ -92,7 +92,7 @@ of steps?
 totalStepsPerDayNoNA <- aggregate(steps~date, filledMissingNA, sum)
 ggplot(totalStepsPerDayNoNA,aes(steps))+
     geom_histogram(bins = 20, fill = "indianred1") +
-    ggtitle("Histogram of the total number of steps\ntaken each day")+
+    ggtitle("Number of steps taken each day \nduring the months of October and November, 2012")+
     xlab("Number of steps taken each day")
 mean(totalStepsPerDayNoNA$steps)
 median(totalStepsPerDayNoNA$steps)
@@ -116,7 +116,7 @@ days or weekend days (y-axis).
 ```{r PanelPlot, fig.align='center', fig.width=5, fig.height=4}
 averageNumberStepsNoNA <- aggregate(steps~interval+DateType, filledMissingNA, mean)
 qplot(interval,steps,data=averageNumberStepsNoNA,facets = DateType~.,geom = "line",
-      col=DateType)
+      col=DateType, title ="Average Number of Steps taken in 5 minutes intervals \nduring the months of October and November, 2012 by date type")
 ```
 
 
