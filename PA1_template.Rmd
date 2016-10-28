@@ -116,7 +116,7 @@ days or weekend days (y-axis).
 ```{r PanelPlot, fig.align='center', fig.width=5, fig.height=4}
 averageNumberStepsNoNA <- aggregate(steps~interval+DateType, filledMissingNA, mean)
 qplot(interval,steps,data=averageNumberStepsNoNA,facets = DateType~.,geom = "line",
-      col=DateType, title ="Average Number of Steps taken in 5 minutes intervals \nduring the months of October and November, 2012 by date type")
+      col=DateType, main ="Average Number of Steps taken in 5 minutes intervals \nduring the months of October and November, 2012 by date type")
 ```
 
 
